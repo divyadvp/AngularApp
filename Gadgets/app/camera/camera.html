@@ -1,39 +1,89 @@
-<h1>Here Are The New Cameras Available In Market</h1>
-
 <div class="container" ng-controller="cameraCtrl">
-    <div ng-repeat="x in cameraData | filter:searchPhones">
-  <div class="row">
-    <div class="col-md-3">{{x.Name}}</div>
-      <div class="col-md-3">{{x.Model}}</div>
-    <div class="col-md-3">{{x.Price}}</div>
-    <div class="col-md-3"><img ng-src="{{x.imageUrl}}" width="50"height="50"></div>
-  </div>
-  </div>
-    <input type="text" placeholder="search here" ng-model="searchPhones">
+    <div class="row">
+    	<div class="col-md-12">
+			<div class="col-sm-6 col-md-4" ng-repeat="cam in camData">
+				<div class="thumbnail" >
+					<h4 class="text-center"><span class="label label-info">{{cam.Name}}</span></h4>
+					<img ng-src="app/camera/images/canon.jpg" class="img-responsive" height="150px" width="200px">
+					<div class="caption">
+						<div class="row">
+							<div class="col-md-6 col-xs-6">
+								<h4>{{cam.Model}}</h4>
+							</div>
+							<div class="col-md-6 col-xs-6 price">
+								<h4>
+								<label>{{cam.Price}}</label></h4>
+							</div>
+						</div>
+						<p>{{cam.description}}</p>
+						<div class="row">
+							<div class="col-md-6">
+								<a class="btn btn-primary btn-product"><span class="glyphicon glyphicon-thumbs-up"></span> Like</a> 
+							</div>
+							<div class="col-md-6">
+								<button class="btn btn-success btn-product" ng-click="buy(cam)"><span class="glyphicon glyphicon-shopping-cart"></span> Buy</button></div>
+						</div>
+
+						<p> </p>
+					</div>
+				</div>
+			</div>
+			<!--<div class="col-sm-6 col-md-4">
+				<div class="thumbnail" >
+					<h4 class="text-center"><span class="label label-info">Nikon</span></h4>
+					<img ng-src="app/camera/images/nikon.jpeg" class="img-responsive">
+					<div class="caption">
+						<div class="row">
+							<div class="col-md-6 col-xs-6">
+								<h4>Coolpix A300</h4>
+							</div>
+							<div class="col-md-6 col-xs-6 price">
+								<h4>
+								<label>₹7,553</label></h4>
+							</div>
+						</div>
+						<p>16MP, Optical Zoom: 5x, LCD Size: 2.7 inch</p>
+						<div class="row">
+							<div class="col-md-6">
+								<a class="btn btn-primary btn-product"><span class="glyphicon glyphicon-thumbs-up"></span> Like</a> 
+							</div>
+							<div class="col-md-6">
+								<button class="btn btn-success btn-product" ng-click="buy(data)"><span class="glyphicon glyphicon-shopping-cart"></span> Buy</button></div>
+						</div>
+
+						<p> </p>
+					</div>
+				</div>
+			</div>
+            <div class="col-sm-6 col-md-4">
+				<div class="thumbnail" >
+					<h4 class="text-center"><span class="label label-info">Sony</span></h4>
+					<img ng-src="app/camera/images/sony1.jpg" class="img-responsive">
+					<div class="caption">
+						<div class="row">
+							<div class="col-md-6 col-xs-6">
+								<h4>DSC-WX350</h4>
+							</div>
+							<div class="col-md-6 col-xs-6 price">
+								<h4>
+								<label>₹18,480</label></h4>
+							</div>
+						</div>
+						<p>18.2 MP, Optical Zoom: 20, | LCD Size: 3 inch</p>
+						<div class="row">
+							<div class="col-md-6">
+								<a class="btn btn-primary btn-product"><span class="glyphicon glyphicon-thumbs-up"></span> Like</a> 
+							</div>
+							<div class="col-md-6">
+								<button class="btn btn-success btn-product" ng-click="buy(data)"><span class="glyphicon glyphicon-shopping-cart"></span> Buy</button></div>
+						</div>
+
+						<p> </p>
+					</div>
+				</div>
+			--></div>
+            
+        </div> 
+
+	</div>
 </div>
-    
-    
-
-    
-    
-<!--<table class="table table-hover table-stripped">
-
-        <tr>
-            <td>S.No</td>
-            <td>Model Name</td>
-            <td>Price</td>
-            <td>Image</td>
-        </tr>
-         <tr ng-repeat="x in cameraData">
-             <td>{{x.Name}}</td>
-             <td>{{x.Model}}</td>
-             <td>{{x.Price}}</td>
-             
-             <td><img ng-src="{{x.imageUrl}}" width="40"height="40"></td>
-         
-         
-         </tr>
-    
-    
-    </table>-->
-    

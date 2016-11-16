@@ -1,5 +1,5 @@
 (function(){
-    function headerCntrl($scope,$rootScope){
+    function headerCntrl($scope,$rootScope,cartSvc){
         $scope.cartItems=0;
                 $scope.navItems = [{
                 name: "Mobiles",
@@ -8,11 +8,7 @@
             {
                 name: "Camera",
                 templateUrl: "app/camera/camera.html"
-        }, {
-                name: "LED'S",
-                templateUrl: "app/leds/led.html"
-        },
-                                  {
+        },                      {
                 name: "Pendrives",
                 templateUrl: "app/pendrives/pendrive.html"
         },
@@ -29,7 +25,10 @@
             $scope.contentUrl=item.templateUrl;
             
         };
-        $scope.$on("ITEM_ADDED",function(evt,args)
+        /*$scope.cartItems=cartSvc.getItems().length;
+        console.log($scope.cartItems);
+        */
+     $scope.$on("ITEM_ADDED",function(evt,args)
                       {
             console.log(args);
             $scope.cartItems++;
@@ -39,10 +38,10 @@
            console.log(args);
             $scope.cartItems--;
         });
-        
+    
     };
     
-    angular.module("header").controller("headerCntrl",headerCntrl);
+    angular.module("header").controller("headerCntrl",["$scope","$rootScope","cartSvc",headerCntrl]);
     
     
 })();

@@ -6,6 +6,7 @@
         $scope.getCount=cartSvc.getItems().length;
         //console.log($scope.getCount);
         $scope.getData=cartSvc.getItems();
+    
 /*
         $scope.$on("ITEM_ADDED",function(evt,args) {
                      

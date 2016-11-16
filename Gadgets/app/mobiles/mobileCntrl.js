@@ -1,7 +1,7 @@
 (function(){
     function mobileCntrl($scope,$rootScope,mobileSvc, cartSvc){
         $scope.Models=mobileSvc.getMobiles();
-        $scope.limit=2;
+        $scope.limit=4;
         $scope.showmore=function()
         {
             if($scope.limit>7)
@@ -40,9 +40,10 @@
             $rootScope.$broadcast("ITEM_ADDED", {
                 product: item
             });
-        };
+    };
         $scope.removeFromCart=function(item){
             item.selected =false;
+            cartSvc.removeCartItems(item);
             $rootScope.$broadcast("ITEM_REMOVED",
                                  {
                 product:item
